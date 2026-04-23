@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ========== タイトル ========== -->
+    <mxCell id="title" value="Linux カメラ入力 → Qt アプリ フロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="10" width="900" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- ========== ハードウェア層 ========== -->
+    <mxCell id="hw_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=40;" vertex="1" parent="1">
+      <mxGeometry x="80" y="880" width="1140" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="hw_layer_label" value="ハードウェア層" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="90" y="883" width="200" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="cam_usb" value="USB カメラ&#xa;(UVC 対応)" style="shape=mxgraph.cisco.computers_and_peripherals.pc_video_camera;html=1;pointerEvents=1;dashed=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="200" y="895" width="50" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="cam_usb_label" value="USB カメラ (UVC)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="160" y="950" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="cam_csi" value="CSI/MIPI カメラ&#xa;(Raspberry Pi 等)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="500" y="900" width="180" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="cam_pci" value="PCIe カメラ&#xa;(産業用 GigE Vision 等)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="820" y="900" width="200" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ========== カーネル空間 ========== -->
+    <mxCell id="kernel_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;" vertex="1" parent="1">
+      <mxGeometry x="80" y="430" width="1140" height="430" as="geometry" />
+    </mxCell>
+    <mxCell id="kernel_layer_label" value="カーネル空間 (Kernel Space)  ─  Ring 0" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;fontColor=#0050ef;" vertex="1" parent="1">
+      <mxGeometry x="90" y="435" width="400" height="22" as="geometry" />
+    </mxCell>
+
+    <!-- ドライバ層 -->
+    <mxCell id="drv_label" value="▼ デバイスドライバ層" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=2;fontColor=#0050ef;" vertex="1" parent="1">
+      <mxGeometry x="100" y="460" width="200" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="drv_uvc" value="uvcvideo ドライバ&#xa;(USB Video Class)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="150" y="485" width="190" height="55" as="geometry" />
+    </mxCell>
+
+    <mxCell id="drv_csi" value="v4l2-subdev / ISP ドライバ&#xa;(CSI/MIPI Bridge)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="470" y="485" width="200" height="55" as="geometry" />
+    </mxCell>
+
+    <mxCell id="drv_pci" value="カスタムドライバ&#xa;(V4L2 準拠)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="820" y="485" width="180" height="55" as="geometry" />
+    </mxCell>
+
+    <!-- Media Controller -->
+    <mxCell id="media_ctrl" value="Media Controller Framework&#xa;(/dev/media0)&#xa;パイプライン・サブデバイス管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="470" y="580" width="260" height="65" as="geometry" />
+    </mxCell>
+
+    <!-- V4L2 Core -->
+    <mxCell id="v4l2_core" value="V4L2 コア (Video4Linux2 Core)&#xa;フォーマット交渉 / バッファ管理 / ストリーム制御&#xa;(VIDIOC_QUERYCAP / VIDIOC_S_FMT / VIDIOC_STREAMON ...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="680" width="900" height="65" as="geometry" />
+    </mxCell>
+
+    <!-- /dev/video0 -->
+    <mxCell id="devnode" value="/dev/video0  (キャラクタデバイスノード)&#xa;ユーザ空間からのエントリポイント" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="300" y="780" width="600" height="55" as="geometry" />
+    </mxCell>
+
+    <!-- ========== システムコール境界 ========== -->
+    <mxCell id="boundary_line" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#FF0000;strokeWidth=3;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="60" y="425" as="sourcePoint" />
+        <mxPoint x="1240" y="425" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="boundary_label" value="── システムコール境界 (open / ioctl / mmap / read) ──" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#FF0000;" vertex="1" parent="1">
+      <mxGeometry x="420" y="410" width="460" height="24" as="geometry" />
+    </mxCell>
+
+    <!-- ========== ユーザ空間 ========== -->
+    <mxCell id="user_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=30;" vertex="1" parent="1">
+      <mxGeometry x="80" y="60" width="1140" height="345" as="geometry" />
+    </mxCell>
+    <mxCell id="user_layer_label" value="ユーザ空間 (User Space)  ─  Ring 3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;fontColor=#2d7600;" vertex="1" parent="1">
+      <mxGeometry x="90" y="65" width="400" height="22" as="geometry" />
+    </mxCell>
+
+    <!-- libv4l2 -->
+    <mxCell id="libv4l2" value="libv4l2&#xa;フォーマット変換 / 互換ラッパー&#xa;(YUYV→RGB 等の自動変換)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="300" width="280" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- GStreamer -->
+    <mxCell id="gstreamer_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;opacity=50;" vertex="1" parent="1">
+      <mxGeometry x="500" y="285" width="620" height="105" as="geometry" />
+    </mxCell>
+    <mxCell id="gstreamer_label" value="GStreamer パイプライン (オプション)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=3;fontColor=#856500;" vertex="1" parent="1">
+      <mxGeometry x="510" y="288" width="280" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="gst_v4l2src" value="v4l2src&#xa;(V4L2 入力)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="515" y="308" width="110" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="gst_convert" value="videoconvert&#xa;(色空間変換)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="648" y="308" width="110" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="gst_scale" value="videoscale&#xa;(リサイズ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="781" y="308" width="110" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="gst_qtsink" value="qtvideosink&#xa;(Qt シンク)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="914" y="308" width="110" height="55" as="geometry" />
+    </mxCell>
+
+    <!-- Qt Multimedia -->
+    <mxCell id="qt_multimedia" value="Qt Multimedia  (QCamera / QMediaCaptureSession / QVideoFrame)&#xa;バックエンド: GStreamer または直接 V4L2 ioctl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="195" width="860" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Qt Application -->
+    <mxCell id="qt_app" value="Qt アプリケーション&#xa;QVideoWidget / QGraphicsVideoItem でプレビュー表示&#xa;QVideoFrameInput でフレーム取得・画像処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="200" y="80" width="860" height="75" as="geometry" />
+    </mxCell>
+
+    <!-- ========== 矢印群 ========== -->
+
+    <!-- HW → Driver -->
+    <mxCell id="arr_hw_uvc" value="USB バス&#xa;(バルク転送)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;strokeWidth=2;fontSize=9;fontColor=#b85450;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cam_usb_label" target="drv_uvc">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_hw_csi" value="MIPI CSI-2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;strokeWidth=2;fontSize=9;fontColor=#b85450;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cam_csi" target="drv_csi">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_hw_pci" value="PCIe" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;strokeWidth=2;fontSize=9;fontColor=#b85450;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cam_pci" target="drv_pci">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Driver → Media Controller / V4L2 Core -->
+    <mxCell id="arr_uvc_v4l2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="drv_uvc" target="v4l2_core">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_csi_mc" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="drv_csi" target="media_ctrl">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_mc_v4l2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="media_ctrl" target="v4l2_core">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_pci_v4l2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="drv_pci" target="v4l2_core">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- V4L2 Core → /dev/video0 -->
+    <mxCell id="arr_v4l2_dev" value="デバイスノード生成" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;fontColor=#0050ef;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="v4l2_core" target="devnode">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- /dev/video0 → libv4l2 / GStreamer (システムコールを越える) -->
+    <mxCell id="arr_dev_libv4l2" value="open() / ioctl()&#xa;mmap() / read()" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#FF0000;strokeWidth=2;fontSize=10;fontColor=#FF0000;fontStyle=1;exitX=0.3;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="devnode" target="libv4l2">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_dev_gst" value="open() / ioctl()&#xa;mmap()" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#FF0000;strokeWidth=2;fontSize=10;fontColor=#FF0000;fontStyle=1;exitX=0.6;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="devnode" target="gst_v4l2src">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- GStreamer 内部フロー -->
+    <mxCell id="arr_gst1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="gst_v4l2src" target="gst_convert">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_gst2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="gst_convert" target="gst_scale">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="arr_gst3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="gst_scale" target="gst_qtsink">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- libv4l2 → Qt Multimedia -->
+    <mxCell id="arr_libv4l2_qt" value="フレームデータ&#xa;(RGB / YUV)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;strokeWidth=2;fontSize=10;fontColor=#2d7600;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="libv4l2" target="qt_multimedia">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- GStreamer → Qt Multimedia -->
+    <mxCell id="arr_gst_qt" value="QVideoFrame" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;strokeWidth=2;fontSize=10;fontColor=#2d7600;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="gstreamer_bg" target="qt_multimedia">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Qt Multimedia → Qt App -->
+    <mxCell id="arr_qtmm_app" value="QVideoFrame / シグナル" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;strokeWidth=2;fontSize=10;fontColor=#2d7600;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="qt_multimedia" target="qt_app">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ========== 凡例 ========== -->
+    <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="1000" y="65" width="210" height="145" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_title" value="凡例" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1000" y="68" width="210" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="leg1" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry x="1015" y="100" width="50" height="10" as="geometry">
+        <mxPoint x="1015" y="100" as="sourcePoint" />
+        <mxPoint x="1065" y="100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="leg1_l" value="HW → カーネル" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1075" y="92" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="leg2" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry x="1015" y="122" width="50" height="10" as="geometry">
+        <mxPoint x="1015" y="122" as="sourcePoint" />
+        <mxPoint x="1065" y="122" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="leg2_l" value="カーネル内部" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1075" y="114" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="leg3" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#FF0000;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry x="1015" y="144" width="50" height="10" as="geometry">
+        <mxPoint x="1015" y="144" as="sourcePoint" />
+        <mxPoint x="1065" y="144" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="leg3_l" value="システムコール越境" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1075" y="136" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="leg4" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry x="1015" y="166" width="50" height="10" as="geometry">
+        <mxPoint x="1015" y="166" as="sourcePoint" />
+        <mxPoint x="1065" y="166" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="leg4_l" value="ユーザ空間内部" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1075" y="158" width="130" height="20" as="geometry" />
+    </mxCell>
+
+    <mxCell id="leg5" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry x="1015" y="188" width="50" height="10" as="geometry">
+        <mxPoint x="1015" y="188" as="sourcePoint" />
+        <mxPoint x="1065" y="188" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="leg5_l" value="GStreamer パイプライン" style="text;html=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1075" y="180" width="130" height="20" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

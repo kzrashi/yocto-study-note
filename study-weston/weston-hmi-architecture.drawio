@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+
+  <!-- ========== PAGE 1: 全体像（3層構造） ========== -->
+  <diagram name="1. 全体像（3層構造）" id="p1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="HMI マネージャの 3 層構造 ― OSS と自社実装の境界" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="12" width="1000" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LEFT: Stack ===== -->
+
+        <!-- Apps -->
+        <mxCell id="s0" value="アプリケーション（ナビ / メディア / 空調 UI）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="80" y="62" width="460" height="48" as="geometry" />
+        </mxCell>
+
+        <!-- ③ Policy Layer -->
+        <mxCell id="s3h" value="③ ポリシー層（自社実装）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="460" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="s3d" value="「いつ・何を・どこに表示するか」のビジネスロジック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="158" width="460" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s3e" value="CAN 解釈 ・ 優先度ルール ・ アニメーション仕様" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="186" width="460" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s3f" value="✏️ 車種・製品仕様に合わせて一から設計・実装" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="214" width="460" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- ② AGL WindowManager -->
+        <mxCell id="s2h" value="② AGL WindowManager（OSS ベース）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="252" width="460" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="s2d" value="アプリからの表示要求を受け付けるデーモン（DBus / SOME-IP）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="460" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s2e" value="内部で ilmControl を呼び Weston を制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="318" width="460" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s2f" value="🔧 画面領域の定義・アプリカテゴリ等はカスタマイズ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="346" width="460" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- ① wayland-ivi-extension -->
+        <mxCell id="s1h" value="① wayland-ivi-extension（OSS・改変不要）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="384" width="460" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="s1d" value="ilmControl API（C ライブラリ）+ Weston プラグイン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="422" width="460" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s1e" value="✅ ビルドして組み込むだけ。API を呼ぶだけ。改変不要。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="460" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Weston -->
+        <mxCell id="sw" value="Weston + IVI Shell（OSS）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="80" y="488" width="460" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Kernel -->
+        <mxCell id="sk" value="Linux カーネル（OSS）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="460" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Hardware -->
+        <mxCell id="sh" value="ハードウェア（SoC ・ディスプレイ ・タッチパネル ・CAN）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#555555;strokeColor=#333333;fontSize=13;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="80" y="588" width="460" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- ===== RIGHT: Legend + Key Points ===== -->
+
+        <!-- Legend -->
+        <mxCell id="lg" value="凡例" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="62" width="80" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="620" y="95" width="30" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1t" value="OSS：ビルドして使うだけ。改変不要。" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="95" width="350" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="620" y="125" width="30" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2t" value="OSS ベース：そのまま使えるが、カスタマイズも可能。" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="125" width="400" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="155" width="30" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lg3t" value="自社実装：OSS で代替不可。一から設計・実装が必要。" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="155" width="420" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Comparison table: what OSS gives you vs what you write -->
+        <mxCell id="ct" value="各層で「何をするか」の整理" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="200" width="480" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="th1" value="層" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=#333333;fontSize=12;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="232" width="60" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="th2" value="あなたがやること" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=#333333;fontSize=12;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="232" width="220" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="th3" value="OSS が担う部分" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=#333333;fontSize=12;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="232" width="210" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tr1a" value="①" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="264" width="60" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1b" value="API を呼ぶだけ&#xa;（コード変更なし）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="264" width="220" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1c" value="Weston との通信プロトコル&#xa;レイヤー操作の実装" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="264" width="210" height="48" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tr2a" value="②" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="312" width="60" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2b" value="画面領域の定義&#xa;アプリカテゴリの設定&#xa;起動シーケンスの調整" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="312" width="220" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2c" value="アプリ要求の受け付け&#xa;ilmControl の呼び出し&#xa;アクティブ管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="312" width="210" height="64" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tr3a" value="③" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="376" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3b" value="CAN イベントの解釈&#xa;表示優先度ルールの設計&#xa;状態遷移ロジックの実装&#xa;アニメーション仕様の実装" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="376" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3c" value="なし&#xa;（すべて自社で実装）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="376" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Key message -->
+        <mxCell id="km" value="🔑 重要なポイント&#xa;&#xa;「HMI マネージャ」とは ①②③ の組み合わせ全体を指す。&#xa;①は純粋な OSS ライブラリ、②は OSS の土台を使う、&#xa;③だけが「一から自分で書く」部分。&#xa;&#xa;実際の開発工数の大半は ③ のポリシー設計・実装が占める。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="490" height="155" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ========== PAGE 2: wayland-ivi-extension ========== -->
+  <diagram name="2. wayland-ivi-extension" id="p2">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="① wayland-ivi-extension ― 「そのまま使う」とはどういうことか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="12" width="1050" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- LEFT: What you get (file structure) -->
+        <mxCell id="lt" value="インストールで得られるもの（GENIVI OSS）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="62" width="480" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Weston side -->
+        <mxCell id="ws" value="Weston 側（サーバープラグイン）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="98" width="480" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ws1" value="ivi-shell.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="134" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws1t" value="← IVI Shell 本体。weston.ini で読み込む" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="134" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws2" value="ivi-input-controller.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="164" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws2t" value="← タッチ入力をサーフェスに振り分け" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="164" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Client library side -->
+        <mxCell id="cl" value="クライアント側（あなたのコードがリンクするライブラリ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="208" width="480" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="cl1" value="libilmControl.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="244" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cl1t" value="← HMI マネージャが使う。レイヤー操作 API" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="244" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cl2" value="libilmInput.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="274" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cl2t" value="← 入力フォーカス制御 API" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="274" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cl3" value="libilmCommon.so" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="304" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cl3t" value="← 共通型定義・初期化" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="304" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Protocol definitions -->
+        <mxCell id="pd" value="Wayland プロトコル定義（XML）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="348" width="480" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="pd1" value="ivi_application.xml" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="384" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pd1t" value="← アプリが IVI ID を登録するプロトコル" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="384" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pd2" value="ivi_controller.xml" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="414" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pd2t" value="← HMI マネージャがレイヤーを制御するプロトコル" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="414" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Tools -->
+        <mxCell id="tl" value="デバッグ・動作確認ツール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="458" width="480" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="tl1" value="LayerManagerControl" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="494" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tl1t" value="← CLI でレイヤー状態確認・操作ができるツール" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="268" y="494" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- RIGHT: How it connects -->
+        <mxCell id="rt" value="接続構造（あなたのコードと Weston の間）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="62" width="530" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- App box -->
+        <mxCell id="app" value="アプリ（ナビ等）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="100" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="appl" value="libwayland-client&#xa;+ ivi_application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="162" width="180" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- HMI Manager box -->
+        <mxCell id="hmi" value="HMI マネージャ（あなたが書く）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="100" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hmil" value="libilmControl.so&#xa;（wayland-ivi-extension）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="162" width="220" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Wayland Socket -->
+        <mxCell id="sock" value="Wayland ソケット（UNIX domain socket）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="665" y="265" width="390" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Weston + IVI Shell -->
+        <mxCell id="wst" value="Weston + IVI Shell" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="340" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wstd" value="ivi-shell.so プラグインが読み込まれている" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="710" y="390" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="ea1" value="ivi_application プロトコル&#xa;（IVI ID を登録）" style="endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" edge="1" parent="1" source="appl" target="sock">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2" value="ivi_controller プロトコル&#xa;（レイヤー制御命令）" style="endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" edge="1" parent="1" source="hmil" target="sock">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3" value="" style="endArrow=block;endFill=1;strokeColor=#9673a6;" edge="1" parent="1" source="sock" target="wst">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4" value="" style="endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="app" target="appl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea5" value="" style="endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="hmi" target="hmil">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ilmControl API code example -->
+        <mxCell id="code" value="// あなたのコード（HMI マネージャ）に書くのはこれだけ&#xa;#include &lt;ilm/ilmControl.h&gt;&#xa;&#xa;// 初期化&#xa;ilmErrorTypes result = ilm_init();&#xa;&#xa;// サーフェスをレイヤーに追加&#xa;ilm_layerAddSurface(MY_LAYER_ID, surfaceId);&#xa;&#xa;// 表示位置・サイズを設定&#xa;ilm_surfaceSetDestinationRectangle(surfaceId, 0, 0, 800, 480);&#xa;&#xa;// 表示・非表示の切替&#xa;ilm_surfaceSetVisibility(surfaceId, ILM_TRUE);&#xa;&#xa;// 確定（ここで Weston に反映される）&#xa;ilm_commitChanges();" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;fontFamily=Courier New;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="590" y="450" width="530" height="310" as="geometry" />
+        </mxCell>
+
+        <!-- Key message -->
+        <mxCell id="km" value="✅ 「そのまま使う」の意味&#xa;wayland-ivi-extension のソースコードを一切変更せず、&#xa;ヘッダーをインクルードして API を呼ぶだけ。&#xa;Weston との通信は全部ライブラリ内部で処理される。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="480" height="100" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ========== PAGE 3: AGL WindowManager ========== -->
+  <diagram name="3. AGL WindowManager" id="p3">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="② AGL WindowManager ― 土台として使う OSS デーモン" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="12" width="1050" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Architecture flow (top) -->
+        <mxCell id="ft" value="全体のデータフロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="58" width="1050" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- App A -->
+        <mxCell id="a1" value="アプリ A&#xa;（ナビ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="98" width="110" height="55" as="geometry" />
+        </mxCell>
+        <!-- App B -->
+        <mxCell id="a2" value="アプリ B&#xa;（メディア）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="168" width="110" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- libwindowmanager -->
+        <mxCell id="lwm" value="libwindowmanager&#xa;（AGL クライアント API）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="118" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- DBus -->
+        <mxCell id="dbus" value="DBus / SOME-IP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="435" y="118" width="150" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- WindowManager daemon -->
+        <mxCell id="wmd" value="WindowManager デーモン&#xa;（AGL OSS）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="108" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- ilmControl -->
+        <mxCell id="ilm" value="ilmControl API&#xa;（wayland-ivi-ext）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="905" y="118" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Weston -->
+        <mxCell id="wst" value="Weston + IVI Shell" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="118" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows in flow -->
+        <mxCell id="fe1" value="「ナビを表示して」" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="a1" target="lwm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fe1b" value="" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="a2" target="lwm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fe2" value="requestSurface()" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="lwm" target="dbus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fe3" value="要求を受け付け" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="dbus" target="wmd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fe4" value="ilm_surfaceSetVisibility()" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="wmd" target="ilm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fe5" value="" style="endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1" source="ilm" target="wst">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- LEFT: What AGL WindowManager provides (OSS) -->
+        <mxCell id="lt" value="OSS として提供される機能（すぐ使える）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="520" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lo1" value="✅ アプリからの表示要求受け付け" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="275" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="lo1d" value="libwindowmanager の requestSurface() を呼ぶだけでアプリが画面要求を出せる" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="310" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lo2" value="✅ アクティブアプリの管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="338" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="lo2d" value="「今どのアプリが前面にあるか」の状態管理は WindowManager が担当" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="373" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lo3" value="✅ ilmControl の呼び出しラッパー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="401" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="lo3d" value="低レベルな ilmControl API の呼び出しを内部で処理。直接呼ばなくてよい" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="436" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lo4" value="✅ 画面遷移のイベント通知" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="464" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="lo4d" value="「アプリAが前面になった」「アプリBが隠れた」等のイベントをアプリに通知" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="499" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- RIGHT: What you customize -->
+        <mxCell id="rt" value="カスタマイズが必要な部分" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="240" width="520" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rc1" value="🔧 画面領域（Area）の定義" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="275" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rc1d" value="「ナビ用エリアは左半分」「メーターは右上」等の画面分割を設定ファイルで定義" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rc2" value="🔧 アプリカテゴリとレイアウトの紐付け" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="338" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rc2d" value="「ナビカテゴリ」→「メインエリア全画面」等のマッピングルールを設定" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="620" y="373" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rc3" value="🔧 起動シーケンスの調整" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="401" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rc3d" value="「起動直後に HomeScreen を表示」等の初期状態の定義" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="620" y="436" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rc4" value="✏️ ポリシー層（③）との接続" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="464" width="520" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rc4d" value="CAN イベント等を受けた③ポリシー層が、WM の API を呼ぶ連携部分を実装" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="499" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Bottom: code example of using AGL WM API -->
+        <mxCell id="codet" value="アプリ側のコード例（libwindowmanager を使う）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="548" width="500" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="code1" value="#include &lt;libwindowmanager.h&gt;&#xa;&#xa;LibWindowmanager *wm = new LibWindowmanager();&#xa;wm-&gt;init(port, token);&#xa;&#xa;// 「このアプリを表示したい」と要求するだけ&#xa;wm-&gt;requestSurface(appid);&#xa;&#xa;// 「前面になった」通知を受け取るコールバック&#xa;wm-&gt;set_event_handler(LibWindowmanager::Event_Active,&#xa;    [](json_object *j) { /* 前面になった時の処理 */ });" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;fontFamily=Courier New;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="578" width="520" height="205" as="geometry" />
+        </mxCell>
+
+        <mxCell id="codet2" value="③ポリシー層から WindowManager を呼ぶコード例" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="548" width="520" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="code2" value="// CAN イベント「リバースギア検知」を受けたポリシー層が呼ぶ&#xa;void PolicyLayer::onReverseGear() {&#xa;    // WindowManager API でバックカメラを前面に&#xa;    windowManager-&gt;activateSurface(BACKCAMERA_APP_ID);&#xa;&#xa;    // または直接 ilmControl を使う（安全系は直接制御）&#xa;    ilm_layerSetVisibility(LAYER_WARNING, ILM_TRUE);&#xa;    ilm_surfaceSetVisibility(BACKCAM_SURFACE, ILM_TRUE);&#xa;    ilm_commitChanges();&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;fontFamily=Courier New;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="610" y="578" width="520" height="205" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ========== PAGE 4: ポリシー層（自社実装） ========== -->
+  <diagram name="4. ポリシー層（自社実装）" id="p4">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="③ ポリシー層（自社実装）― 何をどう実装するか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="12" width="1050" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===== INPUT SOURCES (left column) ===== -->
+        <mxCell id="ist" value="入力イベント源" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="220" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="i1" value="CAN バス&#xa;ギア位置・速度・警告灯" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="92" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="i2" value="アプリからの要求&#xa;「前面に出たい」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="160" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="i3" value="システムイベント&#xa;起動 / シャットダウン / エラー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="228" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="i4" value="センサー類&#xa;衝突検知 / 照度 / 温度" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="296" width="220" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ===== POLICY ENGINE (center) ===== -->
+        <mxCell id="pet" value="ポリシーエンジン（自社実装の核心）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="60" width="530" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- State machine -->
+        <mxCell id="sm" value="表示状態マシン（State Machine）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="92" width="530" height="38" as="geometry" />
+        </mxcel>
+
+        <!-- States -->
+        <mxCell id="st1" value="通常走行モード" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="145" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="st2" value="後退モード" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="510" y="145" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="st3" value="通話中モード" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="145" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="st4" value="緊急警告モード" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="235" width="150" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Transition arrows -->
+        <mxCell id="te1" value="リバースギア" style="endArrow=block;endFill=1;strokeColor=#d79b00;fontSize=10;" edge="1" parent="1" source="st1" target="st2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="te2" value="前進に戻る" style="endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=10;" edge="1" parent="1" source="st2" target="st1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395" y="215" />
+              <mxPoint x="395" y="228" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="te3" value="着信" style="endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" edge="1" parent="1" source="st1" target="st3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="te4" value="通話終了" style="endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=10;" edge="1" parent="1" source="st3" target="st1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="775" y="218" />
+              <mxPoint x="775" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="te5" value="緊急警報" style="endArrow=block;endFill=1;strokeColor=#b85450;fontSize=10;" edge="1" parent="1" source="st1" target="st4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="te6" value="警報解除" style="endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=10;" edge="1" parent="1" source="st4" target="st1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Priority rules -->
+        <mxCell id="pr" value="表示優先度ルール（設計必須）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="310" width="530" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="pr1" value="1位（最高）: 緊急警告（衝突・ブレーキ異常）→ Layer 3 に強制表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="348" width="530" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pr2" value="2位: バックカメラ（リバースギア時）→ 全画面で強制表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="378" width="530" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pr3" value="3位: 着信UI（電話）→ ナビを縮小して着信画面を表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="408" width="530" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pr4" value="4位以下: ナビ・メディア・空調 UI など通常アプリ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="438" width="530" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== OUTPUT (right column) ===== -->
+        <mxCell id="ot" value="出力（WindowManager / ilmControl への命令）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="60" width="250" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="o1" value="WM API 呼び出し&#xa;activateSurface(appId)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="905" y="92" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="o2" value="ilmControl 直接呼び出し&#xa;（安全系・緊急系）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="905" y="160" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="o3" value="アニメーション制御&#xa;フェードイン・スライド等" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="905" y="228" width="220" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows input -> policy -->
+        <mxCell id="ae1" value="" style="endArrow=block;endFill=1;strokeColor=#9673a6;" edge="1" parent="1" source="i1" target="sm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae2" value="" style="endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="i2" target="sm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae3" value="" style="endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="i3" target="sm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae4" value="" style="endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" parent="1" source="i4" target="sm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows policy -> output -->
+        <mxCell id="ao1" value="" style="endArrow=block;endFill=1;strokeColor=#6c8ebf;" edge="1" parent="1" source="pr" target="o1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ao2" value="" style="endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" parent="1" source="pr" target="o2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ao3" value="" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" parent="1" source="pr" target="o3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Bottom: concrete example scenario -->
+        <mxCell id="extt" value="具体例：リバースギアに入った時の処理フロー" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="510" width="600" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ex1" value="CAN 受信&#xa;「R ギア」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="545" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ex2" value="ポリシー層&#xa;状態=後退モード" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="165" y="545" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ex3" value="WM API 呼び出し&#xa;activateSurface&#xa;(BACKCAM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="540" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ex4" value="ilmControl&#xa;NAV を隠す&#xa;BACKCAM 全画面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="495" y="540" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ex5" value="Weston&#xa;画面に反映" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="545" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="exe1" value="" style="endArrow=block;endFill=1;" edge="1" parent="1" source="ex1" target="ex2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="exe2" value="" style="endArrow=block;endFill=1;" edge="1" parent="1" source="ex2" target="ex3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="exe3" value="" style="endArrow=block;endFill=1;" edge="1" parent="1" source="ex3" target="ex4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="exe4" value="" style="endArrow=block;endFill=1;" edge="1" parent="1" source="ex4" target="ex5"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- What you cannot reuse OSS for -->
+        <mxCell id="nr" value="なぜ③はOSSで代替できないか&#xa;&#xa;・「時速50km以上ではナビ操作を無効化する」&#xa;  → 自社の安全設計ルール&#xa;・「このナビアプリはこの機種でのみ全画面」&#xa;  → 自社の製品仕様&#xa;・「電話着信時のナビ縮小アニメーションは 0.3 秒」&#xa;  → 自社の UX デザイン仕様&#xa;&#xa;これらはすべて車種・製品・会社ごとに異なるため、&#xa;汎用 OSS として提供できない。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="820" y="510" width="320" height="270" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>

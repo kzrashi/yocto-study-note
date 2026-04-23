@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ハードウェア層 -->
+    <mxCell id="hw" value="ハードウェア (Hardware)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="100" y="700" width="800" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- カーネル空間 外枠 -->
+    <mxCell id="kernel_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;" vertex="1" parent="1">
+      <mxGeometry x="100" y="400" width="800" height="280" as="geometry" />
+    </mxCell>
+    <mxCell id="kernel_label" value="カーネル空間 (Kernel Space)  ─  Ring 0 / 特権モード" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;fontSize=13;fontStyle=1;fontColor=#0050ef;" vertex="1" parent="1">
+      <mxGeometry x="110" y="405" width="500" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- システムコールインタフェース -->
+    <mxCell id="syscall_if" value="システムコールインタフェース (System Call Interface)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="440" width="700" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- プロセス管理 -->
+    <mxCell id="proc" value="プロセス管理&#xa;(スケジューラ / fork / exec)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="150" y="520" width="210" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- メモリ管理 -->
+    <mxCell id="mem" value="メモリ管理&#xa;(仮想メモリ / ページング)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="390" y="520" width="210" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- ファイルシステム -->
+    <mxCell id="fs" value="ファイルシステム&#xa;(VFS / ext4 / btrfs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="630" y="520" width="210" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- デバイスドライバ -->
+    <mxCell id="driver" value="デバイスドライバ (CPU / NIC / ディスク / GPU ...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="620" width="690" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- システムコール境界ライン -->
+    <mxCell id="boundary" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#FF0000;strokeWidth=3;" edge="1" parent="1">
+      <mxGeometry x="80" y="390" width="100" height="100" as="geometry">
+        <mxPoint x="80" y="390" as="sourcePoint" />
+        <mxPoint x="1020" y="390" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="boundary_label" value="── システムコール境界 ──" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#FF0000;" vertex="1" parent="1">
+      <mxGeometry x="430" y="370" width="240" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- ユーザ空間 外枠 -->
+    <mxCell id="user_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=30;" vertex="1" parent="1">
+      <mxGeometry x="100" y="60" width="800" height="310" as="geometry" />
+    </mxCell>
+    <mxCell id="user_label" value="ユーザ空間 (User Space)  ─  Ring 3 / 非特権モード" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;fontSize=13;fontStyle=1;fontColor=#2d7600;" vertex="1" parent="1">
+      <mxGeometry x="110" y="65" width="500" height="25" as="geometry" />
+    </mxCell>
+
+    <!-- アプリケーション群 -->
+    <mxCell id="app1" value="シェル&#xa;(bash / zsh)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="150" y="100" width="140" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="app2" value="Webブラウザ&#xa;(Chrome / Firefox)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="320" y="100" width="140" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="app3" value="スクリプト&#xa;(Python / Ruby)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="490" y="100" width="140" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="app4" value="デーモン&#xa;(nginx / sshd)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="660" y="100" width="140" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- 標準ライブラリ -->
+    <mxCell id="glibc" value="標準Cライブラリ  glibc  (open / read / write / malloc / printf ...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="210" width="650" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- システムコールラッパー -->
+    <mxCell id="wrapper" value="システムコールラッパー  (syscall 命令 / ソフトウェア割り込み)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="150" y="295" width="650" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- システムコール下矢印 -->
+    <mxCell id="arrow_down" value="システムコール呼び出し&#xa;(open, read, write, fork ...)" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF0000;strokeWidth=2;fontColor=#FF0000;fontSize=11;fontStyle=1;" edge="1" parent="1" source="wrapper" target="syscall_if">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- カーネルからハードウェアへの矢印 -->
+    <mxCell id="arrow_hw" value="割り込み / DMA / I/O" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#b85450;strokeWidth=2;fontColor=#b85450;fontSize=11;fontStyle=1;" edge="1" parent="1" source="driver" target="hw">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 戻り矢印 (カーネル→ユーザ) -->
+    <mxCell id="arrow_ret" value="戻り値 / errno" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#0050ef;fontSize=11;fontStyle=1;dashed=1;" edge="1" parent="1" source="syscall_if" target="wrapper">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- タイトル -->
+    <mxCell id="title" value="Linux カーネル空間 / ユーザ空間 アーキテクチャ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="10" width="700" height="40" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1200" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- Title -->
+    <mxCell id="100" value="Weston Shell 選定フローチャート" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="20" width="650" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- START -->
+    <mxCell id="10" value="START" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="500" y="80" width="160" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: START -> Q1 -->
+    <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="10" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q1: 車載・産業用? -->
+    <mxCell id="11" value="Q1: 用途は車載 / 産業用 HMI か？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="420" y="170" width="320" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q1 Yes -> Q2 (left) -->
+    <mxCell id="e11y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="11" target="12" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q1 No -> Q5 (right) -->
+    <mxCell id="e11n" value="No" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="11" target="15" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q2: レイアウト固定? (left branch) -->
+    <mxCell id="12" value="Q2: 画面レイアウトを固定するか？&#xa;（ユーザーがウィンドウを動かせない）" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="60" y="310" width="320" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q2 Yes -> Q3 -->
+    <mxCell id="e12y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="12" target="13" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q2 No -> Desktop(left) -->
+    <mxCell id="e12n" value="No" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="12" target="31" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="20" y="355" />
+          <mxPoint x="20" y="610" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Q3: レイヤー制御? (center branch) -->
+    <mxCell id="13" value="Q3: 複数アプリの重なり順を&#xa;プログラムから制御したいか？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="420" y="310" width="320" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q3 Yes -> IVI(center) -->
+    <mxCell id="e13y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="13" target="21" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q3 No -> Q4 -->
+    <mxCell id="e13n" value="No" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="13" target="14" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q4: AGL/GENIVI? -->
+    <mxCell id="14" value="Q4: AGL / GENIVI&#xa;エコシステムを利用するか？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="780" y="310" width="300" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q4 Yes -> IVI(right) -->
+    <mxCell id="e14y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="14" target="22" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q4 No -> 要件再確認 -->
+    <mxCell id="e14n" value="No" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="14" target="32" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q5: ユーザー自由操作? (right branch from Q1 No) -->
+    <mxCell id="15" value="Q5: ユーザーがウィンドウを&#xa;自由に操作する必要があるか？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="780" y="170" width="300" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q5 Yes -> Desktop(right) -->
+    <mxCell id="e15y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="15" target="30" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Arrow: Q5 No -> IVI(center) -->
+    <mxCell id="e15n" value="No&#xa;(固定UI)" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="15" target="21" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="740" y="215" />
+          <mxPoint x="740" y="470" />
+          <mxPoint x="580" y="470" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- RESULT: Desktop Shell (right, from Q5 Yes) -->
+    <mxCell id="30" value="✅ Desktop Shell&#xa;&#xa;・xdg-shell プロトコル&#xa;・汎用 Qt / GTK アプリ対応&#xa;・ユーザー操作ベースのUI&#xa;・freedesktop.org 標準準拠" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="790" y="330" width="260" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- RESULT: Desktop Shell (left, from Q2 No) -->
+    <mxCell id="31" value="✅ Desktop Shell&#xa;&#xa;・xdg-shell プロトコル&#xa;・汎用 Qt / GTK アプリ対応&#xa;・自由なウィンドウ操作が可能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="-160" y="560" width="260" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- RESULT: IVI Shell (center, from Q3 Yes / Q5 No) -->
+    <mxCell id="21" value="✅ IVI Shell&#xa;&#xa;・ivi-application プロトコル&#xa;・Layer Manager API (ilmControl)&#xa;・AGL / GENIVI 標準準拠&#xa;・車載安全要件対応実績あり" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="420" y="460" width="280" height="120" as="geometry" />
+    </mxCell>
+
+    <!-- RESULT: IVI Shell (right, from Q4 Yes) -->
+    <mxCell id="22" value="✅ IVI Shell&#xa;&#xa;・AGL 標準対応&#xa;・GENIVI 準拠&#xa;・車載エコシステム統合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="800" y="460" width="240" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- RESULT: 要件再確認 (from Q4 No) -->
+    <mxCell id="32" value="⚠️ 要件を再確認&#xa;&#xa;・固定UI に近い → IVI Shell&#xa;・汎用操作が必要 → Desktop Shell&#xa;・アーキテクチャ設計から見直し推奨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="1120" y="300" width="280" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- Legend Box -->
+    <mxCell id="90" value="凡例" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="700" width="80" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="91" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="60" y="730" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="92" value="推奨結果" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="100" y="730" width="100" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="93" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="60" y="760" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="94" value="判断ポイント" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="100" y="760" width="100" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="95" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+      <mxGeometry x="60" y="790" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="96" value="要確認・再検討" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="100" y="790" width="120" height="20" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
