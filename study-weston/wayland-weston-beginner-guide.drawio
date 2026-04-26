@@ -1,0 +1,891 @@
+<mxfile host="65bd71144e">
+    <diagram name="1. 基本概念" id="p1">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p1_t" value="画面表示の基本的な仕組み" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="20" width="740" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_label_apps" value="【アプリケーション】" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="140" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_a1" value="アプリA&#xa;例：ブラウザ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="178" width="175" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_a2" value="アプリB&#xa;例：動画プレイヤー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="293" width="175" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_a3" value="アプリC&#xa;例：ターミナル" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="408" width="175" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_ds" value="ディスプレイサーバー&#xa;&#xa;画面を管理する司令塔&#xa;─────────────&#xa;・アプリの画面を受け取る&#xa;・合成してモニターに出す&#xa;・マウス/キーボードを管理&#xa;・入力を適切なアプリへ転送" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="230" width="240" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_mon" value="🖥️ モニター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="270" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_kbd" value="⌨️🖱️&#xa;キーボード / マウス" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="410" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e1" value="「ここに描いて!」" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeColor=#6c8ebf;fontColor=#6c8ebf;" parent="1" source="p1_a1" target="p1_ds" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6c8ebf;" parent="1" source="p1_a2" target="p1_ds" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeColor=#6c8ebf;" parent="1" source="p1_a3" target="p1_ds" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e4" value="合成した画面を表示" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#82b366;fontColor=#006600;fontStyle=1;" parent="1" source="p1_ds" target="p1_mon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e5" value="入力イベント" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#b85450;fontColor=#b85450;" parent="1" source="p1_kbd" target="p1_ds" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_e6" value="入力をアプリへ転送" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.6;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;strokeColor=#999999;fontColor=#999999;" parent="1" source="p1_ds" target="p1_a2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1_note" value="💡 ポイント：アプリは直接モニターに描けない。必ずディスプレイサーバーを通す！&#xa;　　　　　　 「ディスプレイサーバー = GUI世界の交通整理係」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=13;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="640" width="1020" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="2. X11の仕組み（古い）" id="p2">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p2_t" value="X11（Xorg）の仕組み ─ 1984年から続く古い方式" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="15" width="940" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_warn" value="⚠️ 問題：3層構造で複雑！遅い！セキュリティが甘い！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=center;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="72" width="680" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_l1lbl" value="【層1】アプリケーション" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="130" width="300" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_a1" value="アプリA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_a2" value="アプリB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_a3" value="アプリC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_e1" value="X11プロトコルで通信" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2_a1" target="p2_xs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_e2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2_a2" target="p2_xs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2_a3" target="p2_xs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_l2lbl" value="【層2】Xサーバー（Xorg）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="235" width="300" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_xs" value="Xサーバー（Xorg）&#xa;─────────────&#xa;・アプリの描画命令を受け取る&#xa;・入力デバイスを管理&#xa;・ウィンドウ位置を管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff9999;strokeColor=#cc0000;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="265" width="390" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_e4" value="描画データを渡す" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2_xs" target="p2_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_l3lbl" value="【層3】コンポジター" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="390" width="300" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_comp" value="コンポジター（例: Mutter / KWin）&#xa;─────────────&#xa;各ウィンドウの画像を受け取り&#xa;1枚の画面に合成する" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#ff8800;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="422" width="390" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_e5" value="最終画像を送る" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2_comp" target="p2_mon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_mon" value="🖥️ モニター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="595" width="220" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_prob_t" value="❌ X11 の問題点" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="130" width="280" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_prob" value="① 3層構造で処理が遅い&#xa;    Xサーバー → コンポジターへの&#xa;    二重処理が発生する&#xa;&#xa;② Xサーバーとコンポジターが別々&#xa;    → 同期が複雑でティアリングが起きやすい&#xa;&#xa;③ セキュリティが甘い&#xa;    → アプリAがアプリBのキー入力を&#xa;       盗み見できてしまう！&#xa;&#xa;④ 1984年の設計で古すぎる&#xa;    → タッチスクリーン・HDPIに非対応&#xa;    → ネットワーク越し前提で無駄が多い" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="168" width="560" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_sec_t" value="🔓 セキュリティ問題のイメージ" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="428" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_evil" value="😈 悪意のある&#xa;アプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="468" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_good" value="🔑 パスワード入力中&#xa;のアプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="468" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_hack" value="キー入力を盗み見できる！😱" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#FF0000;fontColor=#FF0000;fontStyle=1;fontSize=12;" parent="1" source="p2_evil" target="p2_good" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2_xs_note" value="X11ではすべてのアプリが&#xa;同じXサーバーバスを共有するため&#xa;他アプリの入力を傍受できてしまう" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="560" width="480" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="3. Waylandの仕組み（新しい）" id="p3">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p3_t" value="Wayland の仕組み ─ 2008年〜の新しい方式" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="15" width="940" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_good" value="✅ シンプル！コンポジターが一体化！2層だけ！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=center;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="72" width="680" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_l1lbl" value="【層1】Waylandクライアント（アプリ）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="130" width="400" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_a1" value="アプリA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_a2" value="アプリB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_a3" value="アプリC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="162" width="115" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_e1" value="Waylandプロトコルで通信" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;strokeColor=#006600;fontColor=#006600;" parent="1" source="p3_a1" target="p3_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_e2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#006600;" parent="1" source="p3_a2" target="p3_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;strokeColor=#006600;" parent="1" source="p3_a3" target="p3_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_l2lbl" value="【層2】コンポジター（Waylandサーバー）─ X11の層2+層3を1つに統合！" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="235" width="700" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_comp" value="コンポジター（Waylandサーバー）&#xa;─────────────────────&#xa;✅ 描画命令の受け取り　　✅ ウィンドウ管理&#xa;✅ 画面の合成　　　　　　✅ 入力デバイス管理&#xa;&#xa;→ X11の「Xサーバー」＋「コンポジター」を1つにまとめた！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="265" width="420" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_e4" value="最終画像を送る" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#82b366;fontColor=#006600;fontStyle=1;" parent="1" source="p3_comp" target="p3_mon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_mon" value="🖥️ モニター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="490" width="220" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_ben_t" value="✅ Wayland の利点" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="130" width="280" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_ben" value="① シンプルな2層構造&#xa;    処理が速い・低遅延・ティアリングなし&#xa;&#xa;② コンポジターが一体化&#xa;    二重処理がなく効率的&#xa;&#xa;③ セキュリティが高い&#xa;    アプリ間は完全に隔離される&#xa;    → 他アプリの入力を見れない&#xa;&#xa;④ 現代的な設計（2008年〜）&#xa;    タッチスクリーン・HDPIに対応&#xa;    ジェスチャー・高解像度に最適&#xa;&#xa;⑤ 組み込み機器に最適&#xa;    軽量・省メモリ・省CPU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="168" width="530" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_sec_t" value="🔒 セキュリティ改善のイメージ" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="498" width="360" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_evil" value="😈 悪意のある&#xa;アプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="538" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_good2" value="🔑 パスワード入力中&#xa;のアプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="870" y="538" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_block" value="❌ アクセス不可！完全に隔離" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#00AA00;fontColor=#00AA00;fontStyle=1;fontSize=12;dashed=1;" parent="1" source="p3_evil" target="p3_good2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3_iso_note" value="Waylandではコンポジターが各アプリを完全に隔離管理するため&#xa;他のアプリのウィンドウ内容や入力イベントを読み取ることが不可能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="628" width="530" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="4. X11 vs Wayland 比較" id="p4">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p4_t" value="X11 vs Wayland ─ 何が違うのか？" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="15" width="740" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_h0" value="比較項目" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="88" width="200" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_h1" value="❌ X11（古い）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="88" width="400" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_h2" value="✅ Wayland（新しい）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="88" width="480" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r1_0" value="誕生年" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="136" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r1_1" value="1984年（40年以上前！）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="136" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r1_2" value="2008年（比較的新しい）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="136" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r2_0" value="アーキテクチャ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="186" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r2_1" value="3層：アプリ → Xサーバー → コンポジター → 画面" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="186" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r2_2" value="2層：アプリ → コンポジター → 画面（シンプル！）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="186" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r3_0" value="速度・遅延" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="236" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r3_1" value="遅延が発生しやすい（二重処理）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="236" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r3_2" value="低遅延・高効率（一体化で無駄なし）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="236" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r4_0" value="セキュリティ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="286" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r4_1" value="甘い（アプリ間でキー入力を盗める）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="286" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r4_2" value="高い（アプリ間が完全に隔離）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="286" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r5_0" value="タッチスクリーン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="336" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r5_1" value="非対応（後付けで対応させた）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="336" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r5_2" value="ネイティブ対応（設計から含まれている）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="336" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r6_0" value="組み込み向け" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="386" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r6_1" value="重い（ネットワーク透過前提の無駄な機能が多い）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="386" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r6_2" value="軽量で最適（Westonなら数十MBで動く）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="386" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r7_0" value="2024年の普及状況" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="436" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r7_1" value="レガシー（徐々に置き換えられている）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="436" width="400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_r7_2" value="Ubuntu/Fedora等のデフォルト・組み込みにも普及中" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="436" width="480" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_arch_t" value="アーキテクチャの視覚比較" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="510" width="1080" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_x_app" value="アプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="555" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_x_xs" value="Xサーバー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff9999;strokeColor=#cc0000;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="615" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_x_co" value="コンポジター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#ff8800;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="675" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_x_mo" value="🖥️" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="735" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_xa1" value="" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="p4_x_app" target="p4_x_xs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_xa2" value="" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="p4_x_xs" target="p4_x_co" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_xa3" value="" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="p4_x_co" target="p4_x_mo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_x_lbl" value="X11：3ステップ" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#CC0000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="785" width="160" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_w_app" value="アプリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="555" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_w_co" value="コンポジター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="645" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_w_mo" value="🖥️" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="735" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_wa1" value="" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="p4_w_app" target="p4_w_co" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_wa2" value="" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="p4_w_co" target="p4_w_mo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4_w_lbl" value="Wayland：2ステップ（速い！）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#006600;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="785" width="220" height="25" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="5. WaylandとWestonの関係" id="p5">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p5_t" value="Wayland と Weston の関係" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="15" width="740" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_ana" value="💡 アナロジー：HTTP と Nginx の関係と全く同じ！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="78" width="740" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_wl_t" value="Wayland（プロトコル）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="140" width="420" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_wl" value="📄 通信のルール・仕様書&#xa;&#xa;「アプリとコンポジターが&#xa; どうやって話すか」を定義&#xa;&#xa;実体はコードではなく仕様（spec）&#xa;&#xa;XML で記述された&#xa;インターフェース定義ファイル群" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="182" width="400" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_arrow" value="このルールに従って実装する" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#006600;fontColor=#006600;fontStyle=1;fontSize=12;" parent="1" source="p5_wl" target="p5_ws" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_ws_t" value="Weston（リファレンス実装）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="140" width="420" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_ws" value="🏗️ Waylandプロトコルの&#xa;　  公式リファレンス実装&#xa;&#xa;「お手本のコンポジター」&#xa;&#xa;・軽量でシンプル&#xa;・組み込み向けに最適&#xa;・Waylandプロジェクト本体が開発&#xa;・C言語で実装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="182" width="400" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_ana_t" value="【アナロジー対応表】" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="425" width="740" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_th0" value="Web の世界" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="465" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_th1" value="GUI の世界" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="465" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_th2" value="説明" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="465" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr1_0" value="HTTP（通信ルール）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="510" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr1_1" value="Wayland（通信ルール）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="510" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr1_2" value="プロトコル仕様" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="510" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr2_0" value="Nginx（お手本実装）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="555" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr2_1" value="Weston（お手本実装）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="555" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr2_2" value="リファレンス実装" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="555" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr3_0" value="Apache / Caddy など" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="600" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr3_1" value="GNOME Shell / KWin / Sway" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="600" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_tr3_2" value="他の実装（同じルールに従う）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="600" width="300" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5_lib" value="📦 libwayland とは？&#xa;Waylandプロトコルを使いやすくしたCライブラリ。アプリもコンポジターもこれを使って通信する。&#xa;「HTTPのcurlライブラリ」に相当。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="680" width="1020" height="65" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="6. Yoctoでの位置づけ" id="p6">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p6_t" value="Yocto Linux での Wayland / Weston の位置づけ" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="15" width="960" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_sl" value="ソフトウェアスタック" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="75" width="500" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_app" value="あなたのアプリ&#xa;（Qt / GTK / SDL2 で作られたGUIアプリ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="108" width="520" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_wes" value="Weston（Waylandコンポジター）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="213" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_lib" value="libwayland（Waylandプロトコルライブラリ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="308" width="520" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_drm" value="DRM / KMS（Linuxカーネルのグラフィックサブシステム）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="398" width="520" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_kern" value="Linuxカーネル" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="488" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_hw" value="ハードウェア（GPU / ディスプレイコントローラー / タッチパネル）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="583" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_e1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p6_app" target="p6_wes" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_e2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p6_wes" target="p6_lib" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p6_lib" target="p6_drm" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_e4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p6_drm" target="p6_kern" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_e5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p6_kern" target="p6_hw" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_rl" value="Yocto 関連レシピ" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="75" width="360" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r1" value="qt5 / gtk+ レシピ&#xa;（meta-qt5, meta-gnome）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="108" width="360" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r2" value="weston レシピ&#xa;（meta-wayland / openembedded-core内）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="213" width="360" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r3" value="wayland / wayland-protocols レシピ&#xa;（openembedded-core内）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="308" width="360" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r4" value="カーネル設定で有効化&#xa;（CONFIG_DRM, CONFIG_DRM_KMS_HELPER）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="398" width="360" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r5" value="linux-yocto / linux-raspberrypi&#xa;などのカーネルレシピ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="488" width="360" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_r6" value="BSP レイヤーのマシン設定&#xa;（GPU ドライバを有効化）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="583" width="360" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6_tip" value="💡 Yocto Tips：local.conf に以下を追加するだけで Weston GUI 環境が起動する！&#xa;&#xa;IMAGE_INSTALL:append = &quot; weston wayland wayland-protocols libinput&quot;&#xa;DISTRO_FEATURES:append = &quot; wayland opengl&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="680" width="1020" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="7. まとめ" id="p7">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p7_t" value="まとめ：Wayland / Weston" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=24;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="15" width="740" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_th0" value="用語" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="90" width="170" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_th1" value="一言説明" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="90" width="380" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_th2" value="たとえると" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="90" width="520" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r1_0" value="Wayland" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="138" width="170" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r1_1" value="ディスプレイの通信プロトコル（仕様）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="138" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r1_2" value="HTTP（Web通信のルール）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="138" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r2_0" value="Weston" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="193" width="170" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r2_1" value="Waylandの公式リファレンス実装コンポジター" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="193" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r2_2" value="Nginx（HTTPを実装したWebサーバーのお手本）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="193" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r3_0" value="コンポジター" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="248" width="170" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r3_1" value="各アプリの画面を合成してモニターに表示する役割" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="248" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r3_2" value="映像ミキサー（複数チャンネルを1画面にまとめる）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="248" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r4_0" value="libwayland" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="303" width="170" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r4_1" value="Waylandプロトコルを使うためのCライブラリ" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="303" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_r4_2" value="libcurl（HTTPを使いやすくしたCライブラリ）" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="303" width="520" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_key_t" value="🎯 絶対に覚えておく 3 つのポイント" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="390" width="480" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_key" value="① Wayland = ルール（プロトコル仕様）&#xa;   Weston = そのルールを実装した軽量コンポジター（GUI管理サーバー）&#xa;&#xa;② X11より2層シンプルで、低遅延・高セキュリティ・軽量&#xa;   → 組み込みLinux（カーナビ、産業パネルetc.）のGUIに最適&#xa;&#xa;③ Yoctoでは IMAGE_INSTALL と DISTRO_FEATURES に&#xa;   &quot;wayland&quot; と &quot;weston&quot; を追加するだけでGUI環境が手に入る" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="432" width="1080" height="145" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_next_t" value="📚 次に学ぶとよいこと" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="608" width="400" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7_next" value="1. Westonの設定ファイル（weston.ini）の書き方&#xa;2. WaylandクライアントアプリをC言語で書く方法（libwayland-client使用）&#xa;3. QtアプリをWayland上で動かす方法（QT_QPA_PLATFORM=wayland）&#xa;4. weston-ivi-shell（自動車HMI向けシェル）の使い方&#xa;5. Yocto の meta-wayland レイヤーと weston.bbappend の書き方" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="650" width="1080" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="8. 言語とコンパイラのアナロジー" id="p8">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p8_t" value="「言語・コンパイラ・ソースコード」で理解する Wayland/Weston" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=19;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="15" width="1040" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="82" width="1090" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_t" value="💬 あなたの最初の理解" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="90" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_wl" value="Wayland&#xa;（言語）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="128" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_eq" value="＝" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="148" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_ws" value="Weston&#xa;（ソースコード）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="128" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_q_judge" value="✅ 方向性は正しい！&#xa;❌ でも Weston の位置づけが少しズレている" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=13;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="128" width="460" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_sec_t" value="✅ より正確な対応関係" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="278" width="400" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_prog_t" value="プログラミングの世界" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#0066CC;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="322" width="460" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_lang" value="📄 言語仕様&#xa;（C言語の規格書）&#xa;&#xa;「こう書けばよい」という&#xa;ルールを定義している" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="358" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_p_e1" value="ルールに従って実装" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0066CC;fontColor=#0066CC;" parent="1" source="p8_lang" target="p8_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_comp" value="⚙️ コンパイラ / ランタイム&#xa;（GCC / Clang / Python）&#xa;&#xa;言語仕様を読み取り&#xa;ソースコードを動かす基盤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="358" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_p_e2" value="ルールを使って書く" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0066CC;fontColor=#0066CC;" parent="1" source="p8_comp" target="p8_src" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_src" value="📝 ソースコード&#xa;（アプリの.cファイル）&#xa;&#xa;言語のルールに従って&#xa;人間が書いた成果物" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="358" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_wayl_t" value="Wayland の世界" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#006600;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="530" width="460" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_wl" value="📄 Waylandプロトコル&#xa;（仕様書・XMLファイル）&#xa;&#xa;「こう通信すればよい」という&#xa;ルールを定義している" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="566" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_w_e1" value="ルールに従って実装" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#006600;fontColor=#006600;" parent="1" source="p8_wl" target="p8_ws" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_ws" value="⚙️ Weston&#xa;（コンポジター）&#xa;&#xa;Waylandプロトコルを実装し&#xa;アプリを動かす基盤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="566" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_w_e2" value="ルールを使って動く" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#006600;fontColor=#006600;" parent="1" source="p8_ws" target="p8_app" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_app" value="📝 GUIアプリ&#xa;（Waylandクライアント）&#xa;&#xa;Waylandのルールに従って&#xa;Westonと通信する成果物" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="566" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_v1" value="対応" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;dashed=1;fontColor=#666666;" parent="1" source="p8_lang" target="p8_wl" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_v2" value="対応" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;dashed=1;fontColor=#666666;" parent="1" source="p8_comp" target="p8_ws" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_v3" value="対応" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;dashed=1;fontColor=#666666;" parent="1" source="p8_src" target="p8_app" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tbl_t" value="対応表まとめ" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="850" y="322" width="260" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_th0" value="プログラミング" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="358" width="290" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_th1" value="Wayland世界" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="358" width="290" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb1_0" value="言語仕様（規格書）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="400" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb1_1" value="Waylandプロトコル" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="400" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb2_0" value="コンパイラ / ランタイム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="445" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb2_1" value="Weston（コンポジター）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="445" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb3_0" value="アプリのソースコード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="490" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_tb3_1" value="GUIアプリ（Waylandクライアント）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="490" width="290" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_miss_t" value="あなたの理解のズレはここ👇" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;fontColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="548" width="580" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_miss" value="Weston を「ソースコード」と思っていた&#xa;　→ 実際は「コンパイラ / ランタイム」の位置&#xa;&#xa;GUIアプリこそが「ソースコード」に相当する！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="582" width="580" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="p8_key" value="🎯 一言まとめ&#xa;&#xa;Wayland ＝ 言語仕様　　Weston ＝ コンパイラ／ランタイム　　GUIアプリ ＝ ソースコード&#xa;&#xa;「言語とソースコード」より「言語とコンパイラ」の方が正確！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="730" width="1360" height="75" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="9. libwaylandとは" id="p9">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p9_t" value="libwayland とは？" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="15" width="740" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_sub" value="「WaylandプロトコルをC言語で使いやすくしたライブラリ」― アプリとWestonが「話す」ための道具" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="62" width="940" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_why_t" value="なぜ必要か？ ─ アプリと Weston は別プロセスで直接話せない" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="100" width="720" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_ap" value="GUIアプリのプロセス&#xa;（独立したメモリ空間）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="138" width="220" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_sock" value="Unix ドメインソケット&#xa;/run/user/1000/wayland-0&#xa;&#xa;プロセス間通信（IPC）の経路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="138" width="260" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_wp" value="Westonのプロセス&#xa;（独立したメモリ空間）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="138" width="220" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_e1" value="libwayland-client" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6c8ebf;fontColor=#0033CC;fontStyle=1;" parent="1" source="p9_ap" target="p9_sock" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_e2" value="libwayland-server" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#82b366;fontColor=#006600;fontStyle=1;" parent="1" source="p9_sock" target="p9_wp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_split_t" value="libwayland の2分割構造" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="248" width="400" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_lc" value="libwayland-client&#xa;─────────────────&#xa;GUIアプリが使う&#xa;&#xa;・Westonへ要求を送る&#xa;・入力イベントを受け取る&#xa;&#xa;例：wl_surface_commit()&#xa;　　wl_display_connect()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="285" width="280" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_ls" value="libwayland-server&#xa;─────────────────&#xa;Westonが使う&#xa;&#xa;・アプリの要求を受け取る&#xa;・イベントをアプリへ送る&#xa;&#xa;例：wl_display_create()&#xa;　　wl_client_get_object()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="285" width="280" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_ph" value="📞 電話のたとえ&#xa;─────────────────&#xa;libwayland-client&#xa;＝ 電話をかける側&#xa;&#xa;libwayland-server&#xa;＝ 電話を受ける側&#xa;&#xa;どちらも同じ&#xa;電話網（ソケット）を使う" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="285" width="240" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_cmp_t" value="libwayland があるとないとでは？" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="530" width="500" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_with" value="✅ libwayland あり&#xa;─────────────────────────────&#xa;wl_surface_commit(surface);&#xa;　↑ 関数を呼ぶだけ！&#xa;　　内部の通信は自動処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="568" width="440" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_wout" value="❌ libwayland なし&#xa;─────────────────────────────&#xa;ソケットを自分で open()&#xa;→ バイナリプロトコルを手書き&#xa;→ メッセージを手動シリアライズ&#xa;→ ヘッダ・オブジェクトIDを管理&#xa;→ 送受信・エラー処理を自前実装&#xa;　　　　　　→ 地獄😱" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="568" width="440" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="p9_xml" value="💡 libwayland のコードの多くは Wayland プロトコルの XML 定義ファイルから自動生成される。&#xa;　  つまり「プロトコル仕様（XML）→ wayland-scanner → C言語コード（libwayland）」という流れ。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="740" width="1080" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="10. DRM／KMSとは" id="p10">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p10_t" value="DRM / KMS とは？" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="15" width="740" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_sub" value="Linux カーネル内のグラフィックサブシステム ─ Weston が画面をモニターへ届ける最後の経路" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="62" width="940" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_drm_t" value="DRM（Direct Rendering Manager）─「GPUへの直接アクセスを管理するカーネルの仕組み」" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="102" width="1000" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_no_t" value="❌ DRM なし（昔）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="138" width="380" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_na1" value="アプリA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_na2" value="アプリB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="195" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_na3" value="アプリC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ngpu" value="💥 GPU に直接書き込み&#xa;→ 衝突・クラッシュ！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="290" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ne1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#CC0000;" parent="1" source="p10_na1" target="p10_ngpu" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ne2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#CC0000;" parent="1" source="p10_na2" target="p10_ngpu" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ne3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#CC0000;" parent="1" source="p10_na3" target="p10_ngpu" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_yes_t" value="✅ DRM あり（現在）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#006600;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="138" width="380" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ya1" value="アプリA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ya2" value="アプリB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="695" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ya3" value="アプリC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="170" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_drm_box" value="DRM（カーネル）&#xa;GPUの交通整理係&#xa;/dev/dri/card0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="285" width="200" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ygpu" value="✅ GPU（安全にアクセス）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="685" y="415" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ye1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#006600;" parent="1" source="p10_ya1" target="p10_drm_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ye2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#006600;" parent="1" source="p10_ya2" target="p10_drm_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ye3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#006600;" parent="1" source="p10_ya3" target="p10_drm_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ye4" value="順番に安全に使わせる" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#006600;fontColor=#006600;" parent="1" source="p10_drm_box" target="p10_ygpu" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_kms_t" value="KMS（Kernel Mode Setting）─「ディスプレイ出力をカーネルが制御する仕組み」" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="500" width="1000" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_fb" value="フレームバッファ&#xa;（ピクセルデータ）&#xa;Westonが合成した画像" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="542" width="170" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_crtc" value="CRTC&#xa;（走査タイミング）&#xa;60Hz などを制御" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="265" y="542" width="170" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_enc" value="エンコーダ&#xa;（信号変換）&#xa;HDMIなどの&#xa;信号に変換" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="542" width="170" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_conn" value="コネクタ&#xa;（物理端子）&#xa;HDMI / DP&#xa;端子" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="715" y="542" width="170" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_mon" value="🖥️ モニター" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="555" width="160" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ke1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p10_fb" target="p10_crtc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ke2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p10_crtc" target="p10_enc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ke3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p10_enc" target="p10_conn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_ke4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="p10_conn" target="p10_mon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_kms_lbl" value="←─────────────────── KMS が管理するパイプライン ───────────────────→" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="632" width="1080" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_rel_t" value="DRM と KMS の関係" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="672" width="400" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p10_rel" value="DRM ─ 大きな枠組み（GPUリソース全体の管理）　　たとえ：工場の「設備管理部門」&#xa;　└─ KMS ─ DRMの一部（ディスプレイ出力に特化）　たとえ：工場の「出荷・梱包部門」&#xa;&#xa;カーネルデバイスファイル：/dev/dri/card0　（DRM経由でGPUとKMSにアクセス）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="705" width="1080" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="11. 全体フロー（libwayland＋DRM/KMS）" id="p11">
+        <mxGraphModel dx="1326" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="p11_t" value="全体フロー ─ GUIアプリからモニターまで" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="15" width="840" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s1" value="① GUIアプリ&#xa;（Waylandクライアント）&#xa;&#xa;画面バッファを共有メモリに描く" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="100" width="230" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s2" value="② libwayland-client&#xa;&#xa;Unixソケット経由で&#xa;Westonへ通知を送る" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="258" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s3" value="③ libwayland-server&#xa;&#xa;アプリからの通知を受け取り&#xa;Westonのハンドラを呼ぶ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="405" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s4" value="④ Weston レンダラー&#xa;（OpenGL ES / Pixman）&#xa;&#xa;各アプリの画面バッファを&#xa;1枚の画像に合成する" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="552" width="230" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s5" value="⑤ DRM（カーネル）&#xa;/dev/dri/card0&#xa;&#xa;合成済みバッファを&#xa;GPUへ安全に渡す" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="725" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;" parent="1" source="p11_s1" target="p11_s2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e2" value="Unixソケット" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;fontColor=#996600;" parent="1" source="p11_s2" target="p11_s3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;" parent="1" source="p11_s3" target="p11_s4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d79b00;" parent="1" source="p11_s4" target="p11_s5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_s6" value="⑥ KMS（カーネル）&#xa;&#xa;フレームバッファ → CRTC&#xa;→ エンコーダ → コネクタ&#xa;（60Hz タイミングで出力）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="725" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_mon" value="⑦ 🖥️ モニター&#xa;&#xa;画面が表示される！" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="733" width="230" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d79b00;" parent="1" source="p11_s5" target="p11_s6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_e6" value="HDMI/DP信号" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;fontColor=#996600;" parent="1" source="p11_s6" target="p11_mon" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_role_t" value="各層の役割まとめ" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="100" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_roles" value="用語　　　　　　役割　　　　　　　　　　　　　　たとえ&#xa;─────────────────────────────────────────────────────&#xa;libwayland-client   アプリ→Westonへ通信する        電話をかける側&#xa;libwayland-server   Weston→アプリへ通信する        電話を受ける側&#xa;Weston              画面を合成しDRMへ渡す           映像ミキサー&#xa;DRM                 GPUへの安全なアクセス管理        GPU交通整理係&#xa;KMS                 モニターへのピクセル出力制御      出荷・梱包部門" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;fontFamily=Courier New;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="138" width="730" height="175" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_key" value="💡 カーネル境界：libwayland まではユーザー空間、DRM/KMS からはカーネル空間&#xa;　  ユーザー空間 ↔ カーネル空間 の境界を越えるのが DRM の /dev/dri/card0 へのシステムコール" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#FF8000;fontSize=12;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="328" width="730" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_uk_label" value="ユーザー空間（User Space）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#0066CC;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="420" width="730" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_uk_apps" value="GUIアプリ　　　　　　libwayland-client　　　　libwayland-server　　　　Weston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="450" width="730" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_boundary" value="━━━━━━━━━━━━━━━━━━━ カーネル境界 ━━━━━━━━━━━━━━━━━━━" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="508" width="730" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_uk_kern" value="DRM（GPUリソース管理）　　　　　　KMS（ディスプレイ出力制御）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="543" width="730" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p11_uk_kern_label" value="カーネル空間（Kernel Space）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#CC6600;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="598" width="730" height="28" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
